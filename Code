@@ -1,0 +1,82 @@
+dict1={}
+ans="y"
+while(ans!="n"):
+    print()
+    print("What You Want To Do ??")
+    print("1. Add contact")
+    print("2. Delete contact")
+    print("3. Search for contact")
+    print("4. Change contact's number")
+    print("5. View Contacts")
+    print("6. Exit")
+    opt=int(input("Choose: "))
+    print()
+    if(opt == 1):
+        n=int(input("Enter how many contacts you have to add: "))
+        for i in range(n):
+            name1=input(f"Enter name of contact {i+1}: ")
+            phone=int(input(f"Enter number of contact {i+1}: "))
+            dict1[name1]=phone;
+        print(f"{i+1} Contacts added successfully")
+        
+    elif(opt == 2):
+        if(len(dict1) == 0):
+            print("No contacts added...Empty List")
+        else:
+            name2=input("Enter name of contact you want to delete: ")
+            for name in dict1:
+                if(name2==name):
+                    del dict1[name2];
+                    print("Contact deleted successfully")
+                    break;
+                else:
+                    print("Name does not present in your contacts...")
+                    break;
+                    
+    elif(opt == 3):
+        if(len(dict1) == 0):
+            print("No contacts added...Empty List")
+        else:
+            name3=input("Enter a contact to be searched: ")
+            for nm in dict1:
+                if(name3==nm):
+                    print(f"Number of {nm} is {dict1[nm]}")
+                    break;
+                else:
+                    print("Name does not present in your contacts...")
+                    break;
+                
+    elif(opt == 4):
+        if(len(dict1) == 0):
+            print("No contacts added...Empty List")
+        else:
+            name4=input("Enter a contact whose number you want to change: ")
+            for nm1 in dict1:
+                if(name4==nm1):
+                    nphone=int(input(f"Enter new number of {nm1}: "))
+                    dict1[nm1]=nphone;
+                    print(f"Phone number of {nm1} is updated....")
+                    break;
+                else:
+                    print("Name does not present in your contacts...")
+                    break;
+    
+    elif(opt == 5):
+        if(len(dict1) == 0):
+            print("No contacts added...Empty List")
+        else:
+            l1=list(dict1.items())
+            for i in range(len(l1)):
+                print(l1[i])
+        
+    elif(opt == 6):
+        print("You are exited....")
+        break;
+    
+    else:
+        print("Invalid Input....")
+        
+    print()
+    ans=input("Do you wanna continue(y/n): ")
+else:
+    print("...Back to home screen...")
